@@ -1,6 +1,7 @@
 from django.urls import path, re_path
-from .import views
+from customer import views
+from .views import shop_category
 
 urlpatterns = [
-    # path('')
+     path('category/',views.shop_category,name="category")
 ]

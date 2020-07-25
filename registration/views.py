@@ -1,17 +1,10 @@
-<<<<<<< HEAD
 
-=======
-from django.shortcuts import render
->>>>>>> d77c8f17a2ae35f3f7df9eab3215b105e2dbcfe1
 import json
 from django.http import JsonResponse
 from .models import user ,shopkeeper
 
 # Create your views here.
-<<<<<<< HEAD
 #signup for user or customer
-=======
->>>>>>> d77c8f17a2ae35f3f7df9eab3215b105e2dbcfe1
 def signup(request):
 	if request.method =="POST":
 		print(request.body)
@@ -25,16 +18,10 @@ def signup(request):
 		else:
 			user.objects.create(**data)
 			message="Registered Sucessfully"
-<<<<<<< HEAD
 	return JsonResponse(message,safe=False) 
 
 
 #signup for shopkeeper
-=======
-	return JsonResponse(message,safe=False)  
-
-
->>>>>>> d77c8f17a2ae35f3f7df9eab3215b105e2dbcfe1
 def shop_signup(request):
 	if request.method =="POST":
 		print(request.body)
@@ -47,16 +34,10 @@ def shop_signup(request):
 		else:
 			shopkeeper.objects.create(**data)
 			message="Registered Sucessfully"
-<<<<<<< HEAD
 	return JsonResponse(message,safe=False) 
 
 
 #login for user or customer 
-=======
-	return JsonResponse(message,safe=False)  
-
-
->>>>>>> d77c8f17a2ae35f3f7df9eab3215b105e2dbcfe1
 def login(request):
 	if request.method == "POST":
 		print(request.body)
@@ -71,11 +52,8 @@ def login(request):
 			message="invalid credentials"	
 	return JsonResponse(message,safe=False)
 
-<<<<<<< HEAD
 
 #login for shopkeeper
-=======
->>>>>>> d77c8f17a2ae35f3f7df9eab3215b105e2dbcfe1
 def shop_login(request):
 	if request.method == "POST":
 		print(request.body)
@@ -90,7 +68,6 @@ def shop_login(request):
 			message="invalid credentials"	
 	return JsonResponse(message,safe=False)
 
-<<<<<<< HEAD
 
 #address for user or customer
 def update_user(request):
@@ -103,6 +80,18 @@ def update_user(request):
 		longitude=data['longitude']
 		user.objects.filter(id=Id).update(address=address,latitude=latitude,longitude=longitude)
 		message="Success"
-	return JsonResponse(message,safe=False)	
-=======
->>>>>>> d77c8f17a2ae35f3f7df9eab3215b105e2dbcfe1
+	return JsonResponse(message,safe=False)
+
+def update_shopkeeper(request):
+	if request.method == "POST":
+		print(request.body)
+		data= json.loads(request.body)
+		Id=data['id']
+		address=data['address']
+		latitude=data['latitude']
+		longitude=data['longitude']
+		openhours=data['openhours']
+		category=data['category']
+		shopkeeper.objects.filter(id=Id).update(address=address,latitude=latitude,longitude=longitude,openhours=openhours,category=category)
+		message="Success"
+	return JsonResponse(message,safe=False)		
