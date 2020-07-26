@@ -3,5 +3,6 @@ from customer import views
 from .views import shop_category
 
 urlpatterns = [
-     path('category/',views.shop_category,name="category")
-]
+     path('category/',views.shop_category,name="category"),
+     path('location/',views.location,name="location"),
+    ]

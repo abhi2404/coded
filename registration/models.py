@@ -21,6 +21,7 @@ class shopkeeper(models.Model):
 	mobile_no=models.CharField(max_length=12)
 	category=models.CharField(max_length=30 ,null= True)
 	address=models.CharField(max_length=400,null=True)
-	openhours=models.CharField(max_length=30,null=True )
+	opentime=models.CharField(max_length=30,null=True )
+	closetime=models.CharField(max_length=30,null=True )
 	latitude=models.CharField(max_length=30,null=True)
 	longitude=models.CharField(max_length=30,null=True)

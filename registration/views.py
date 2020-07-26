@@ -82,6 +82,7 @@ def update_user(request):
 		message="Success"
 	return JsonResponse(message,safe=False)
 
+#address for shopkeeper login
 def update_shopkeeper(request):
 	if request.method == "POST":
 		print(request.body)
@@ -90,8 +91,9 @@ def update_shopkeeper(request):
 		address=data['address']
 		latitude=data['latitude']
 		longitude=data['longitude']
-		openhours=data['openhours']
-		category=data['category']
-		shopkeeper.objects.filter(id=Id).update(address=address,latitude=latitude,longitude=longitude,openhours=openhours,category=category)
+		opentime=data['opentime']
+		closetime=data['closetime']
+		shopkeeper.objects.filter(id=Id).update(address=address,latitude=latitude,longitude=longitude,opentime=opentime,closetime=closetime)
 		message="Success"
-	return JsonResponse(message,safe=False)		
+	return JsonResponse(message,safe=False)
+

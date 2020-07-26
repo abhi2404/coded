@@ -35,7 +35,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    #'shopkeeper',
+    'shopkeeper',
     'registration',
     'customer',
     'django.contrib.admin',
